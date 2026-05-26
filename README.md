@@ -1,178 +1,39 @@
-# Personal Portfolio - Joseph Eton
+# Joseph Eton — Personal Portfolio
 
-A modern, responsive personal portfolio and resume website built with React, Vite, and Tailwind CSS.
+> **Live Site:** [https://etonjoe.github.io/personal-portfolio/](https://etonjoe.github.io/personal-portfolio/)
 
-## Features
+A personal portfolio website built with React, Vite, and Tailwind CSS, deployed automatically to GitHub Pages via GitHub Actions.
 
-✨ **Modern Design**: Clean and professional UI with smooth animations
-📱 **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
-⚡ **Fast Performance**: Built with Vite for optimal build times and performance
-🎨 **Tailwind CSS**: Utility-first CSS framework for rapid UI development
-📧 **Contact Form**: Fully functional contact form for inquiries
-💬 **WhatsApp Integration**: Direct messaging button for quick inquiries
-📝 **Blog Section**: Showcase your latest articles and thoughts
-🔗 **Social Links**: Easy access to your social media profiles
-🌙 **Smooth Scrolling**: Navigation with smooth scroll behavior
+---
 
-## Sections
+## 👤 About
 
-- **Hero**: Eye-catching introduction with call-to-action buttons
-- **About**: Personal introduction with skills showcase
-- **Projects**: Portfolio showcase with links to your best work
-- **Blog**: Latest blog posts and articles
-- **Contact**: Contact form, social links, and WhatsApp integration
-- **Footer**: Site information and quick links
+**Joseph Sunday Eton** — Data Scientist and Public Health Researcher based in Abuja, Nigeria. With over a decade of experience in health systems strengthening, monitoring and evaluation, and data science, Joseph builds data-driven tools and platforms that solve real-world problems across global health and civic technology.
 
-## Tech Stack
+- 📧 [eton.joseph@gmail.com](mailto:eton.joseph@gmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/joseph-eton/)
+- 🐙 [GitHub](https://github.com/etonjoe)
 
-- **React 18**: JavaScript library for building user interfaces
-- **Vite**: Lightning-fast build tool and development server
-- **Tailwind CSS**: Utility-first CSS framework
-- **React Icons**: Beautiful icons for web projects
+---
 
-## Getting Started
+## 🚀 Tech Stack
 
-### Prerequisites
-- Node.js 14+ and npm/yarn installed
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, Vite 5 |
+| Styling | Tailwind CSS 3 |
+| Icons | react-icons |
+| Deployment | GitHub Actions + GitHub Pages |
 
-### Installation
+---
 
-1. Clone the repository:
-```bash
-git clone https://github.com/etonjoe/personal-portfolio.git
-cd personal-portfolio
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-The site will be available at `http://localhost:5173`
-
-## Customization
-
-### Update Personal Information
-
-Edit the following files to add your own information:
-
-- **`src/components/Hero.jsx`**: Update your name and introduction
-- **`src/components/About.jsx`**: Add your bio and skills
-- **`src/components/Projects.jsx`**: Add your projects
-- **`src/components/Blog.jsx`**: Add your blog posts
-- **`src/components/Contact.jsx`**: Update contact details and WhatsApp number
-- **`src/components/Footer.jsx`**: Update footer information
-
-### Update WhatsApp Integration
-
-In `src/components/Contact.jsx`, replace `YOUR_WHATSAPP_NUMBER` with your actual WhatsApp number:
-
-```javascript
-const whatsappLink = `https://wa.me/YOUR_WHATSAPP_NUMBER?text=${encodeURIComponent(whatsappMessage)}`
-```
-
-Example with country code:
-```javascript
-const whatsappLink = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`
-```
-
-### Customize Colors
-
-Edit `tailwind.config.js` to change the color scheme:
-
-```javascript
-theme: {
-  extend: {
-    colors: {
-      primary: '#3B82F6',    // Change primary color (currently blue)
-      secondary: '#1F2937',  // Change secondary color (currently dark gray)
-    }
-  },
-}
-```
-
-## Building for Production
-
-To create an optimized production build:
-
-```bash
-npm run build
-```
-
-The output will be in the `dist` folder.
-
-To preview the production build:
-
-```bash
-npm run preview
-```
-
-## Deployment
-
-### Deploy to GitHub Pages
-
-1. Update `vite.config.js` to include base path:
-```javascript
-export default defineConfig({
-  base: '/personal-portfolio/',
-  plugins: [react()],
-})
-```
-
-2. Install gh-pages:
-```bash
-npm install --save-dev gh-pages
-```
-
-3. Add to `package.json` scripts:
-```json
-"scripts": {
-  "deploy": "npm run build && gh-pages -d dist"
-}
-```
-
-4. Deploy:
-```bash
-npm run deploy
-```
-
-### Deploy to Vercel
-
-1. Push your code to GitHub
-2. Go to [Vercel](https://vercel.com)
-3. Import your repository
-4. Click Deploy
-
-### Deploy to Netlify
-
-1. Push your code to GitHub
-2. Go to [Netlify](https://netlify.com)
-3. Click "New site from Git"
-4. Select your repository
-5. Set build command: `npm run build`
-6. Set publish directory: `dist`
-7. Click Deploy
-
-## Contact Form Setup
-
-To enable the contact form backend functionality, you can use services like:
-- **Formspree**: https://formspree.io
-- **EmailJS**: https://www.emailjs.com
-- **Nodemailer** (with your own backend)
-
-## LinkedIn Profile
-
-Connect with Joseph Eton on LinkedIn: [joseph-eton](https://www.linkedin.com/in/joseph-eton/)
-
-## File Structure
+## 📂 Project Structure
 
 ```
 personal-portfolio/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       # CI/CD: auto-build and deploy on push to main
 ├── src/
 │   ├── components/
 │   │   ├── Header.jsx
@@ -186,26 +47,74 @@ personal-portfolio/
 │   ├── main.jsx
 │   └── index.css
 ├── index.html
-├── vite.config.js
+├── vite.config.js           # base: '/personal-portfolio/' for GitHub Pages
 ├── tailwind.config.js
 ├── postcss.config.js
-├── package.json
-├── .gitignore
-└── README.md
+└── package.json
 ```
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Contributing
-
-Contributions are welcome! Feel free to fork this repository and submit pull requests for any improvements.
-
-## Support
-
-If you have any questions or need help customizing your portfolio, feel free to reach out!
 
 ---
 
-**Built with ❤️ by Joseph Eton**
+## ⚙️ Local Development
+
+### Prerequisites
+- Node.js 18+
+- npm
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/etonjoe/personal-portfolio.git
+cd personal-portfolio
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The compiled output is in the `dist/` folder.
+
+---
+
+## 🚢 Deployment
+
+Deployment is fully automated. Every push to `main` triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`), which:
+
+1. Checks out the code
+2. Installs Node.js 20
+3. Runs `npm install`
+4. Runs `npm run build` (Vite compiles to `dist/`)
+5. Pushes the `dist/` folder to the `gh-pages` branch
+6. GitHub Pages serves the site from `gh-pages`
+
+> **Note:** `vite.config.js` includes `base: '/personal-portfolio/'` so all asset paths resolve correctly under the GitHub Pages subdirectory.
+
+---
+
+## 🛠️ Key Fixes Applied
+
+The following issues were diagnosed and resolved to get the site working on GitHub Pages:
+
+| Issue | Root Cause | Fix Applied |
+|---|---|---|
+| Blank page | Pages was serving raw source (`main` branch) instead of a compiled build | Added GitHub Actions deploy workflow |
+| Asset 404s | Vite built assets with absolute `/` paths, not the `/personal-portfolio/` subdirectory | Added `base: '/personal-portfolio/'` to `vite.config.js` |
+| No CI/CD | No `.github/workflows/` existed | Created `deploy.yml` with build and deploy steps |
+| Wrong Pages source | Pages pointed at `main` (source code), not `gh-pages` (built output) | Switched Pages source to `gh-pages` branch |
+
+---
+
+## 📄 License
+
+MIT — free to use and adapt.
