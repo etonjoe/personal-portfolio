@@ -66,8 +66,8 @@ export default function Contact() {
                 <FiPhone className="text-primary text-xl mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-secondary">Phone</h4>
-                  <a href="tel:+1234567890" className="text-gray-600 hover:text-primary">
-                    +1 (234) 567-890
+                  <a href="tel:+2348035913519" className="text-gray-600 hover:text-primary">
+                    +1 (234) 803-591-3519
                   </a>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="john@example.com"
+                  placeholder="eton.joseph@gmail.com"
                 />
               </div>
 
