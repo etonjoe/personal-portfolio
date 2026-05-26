@@ -32,7 +32,7 @@ export default function Contact() {
   }
 
   const whatsappMessage = `Hi Joseph, I'm interested in discussing a project with you.`
-  const whatsappLink = `https://wa.me/YOUR_WHATSAPP_NUMBER?text=${encodeURIComponent(whatsappMessage)}`
+  const whatsappLink = `https://wa.me/2348035913519?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <section id="contact" className="py-20 px-4 bg-gray-50">
