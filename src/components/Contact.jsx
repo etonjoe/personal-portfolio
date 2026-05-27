@@ -1,29 +1,17 @@
 import { useState } from 'react'
-import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiTwitter } from 'react-icons/fi'
-import { FiMessageCircle } from 'react-icons/fi'
+import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiMessageCircle } from 'react-icons/fi'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Here you would typically send the form data to a backend service
-    console.log('Form submitted:', formData)
     setSubmitted(true)
     setTimeout(() => {
       setFormData({ name: '', email: '', subject: '', message: '' })
@@ -31,173 +19,98 @@ export default function Contact() {
     }, 3000)
   }
 
-  const whatsappMessage = `Hi Joseph, I'm interested in discussing a project with you.`
+  const whatsappMessage = `Hi Joseph, I'd like to discuss a project with you.`
   const whatsappLink = `https://wa.me/2348035913519?text=${encodeURIComponent(whatsappMessage)}`
 
+  const contacts = [
+    { icon: FiMail, label: 'Email', value: 'eton.joseph@gmail.com', href: 'mailto:eton.joseph@gmail.com' },
+    { icon: FiPhone, label: 'Phone', value: '+234 803 591 3519', href: 'tel:+2348035913519' },
+    { icon: FiMapPin, label: 'Location', value: 'Abuja, Nigeria', href: null },
+  ]
+
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-50">
+    <section id="contact" className="py-20 px-4 bg-slate-950">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-12 text-center">
-          Get In <span className="text-primary">Touch</span>
-        </h2>
+        <div className="text-center mb-14">
+          <p className="text-blue-400 font-semibold tracking-widest uppercase text-sm mb-2">Reach Out</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
+            Get In <span className="text-blue-400">Touch</span>
+          </h2>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Left side */}
           <div>
-            <h3 className="text-2xl font-bold text-secondary mb-6">
-              Let's Connect
-            </h3>
-            <p className="text-gray-600 mb-8">
-              Have a question or want to work together? Feel free to reach out! I'm always excited to hear about new opportunities and projects.
+            <p className="text-slate-400 leading-relaxed mb-8">
+              Available for data science consulting, engineering contracts, research collaborations, and speaking engagements. Based in Abuja, Nigeria — open to remote and international opportunities.
             </p>
 
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start gap-4">
-                <FiMail className="text-primary text-xl mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-secondary">Email</h4>
-                  <a href="mailto:your-email@example.com" className="text-gray-600 hover:text-primary">
-                    your-email@example.com
-                  </a>
+            <div className="space-y-5 mb-8">
+              {contacts.map(({ icon: Icon, label, value, href }) => (
+                <div key={label} className="flex items-center gap-4 group">
+                  <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0">
+                    <Icon size={18} />
+                  </div>
+                  <div>
+                    <p className="text-slate-500 text-xs uppercase tracking-wider">{label}</p>
+                    {href ? (
+                      <a href={href} className="text-slate-200 hover:text-blue-400 transition-colors font-medium">{value}</a>
+                    ) : (
+                      <p className="text-slate-200 font-medium">{value}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <FiPhone className="text-primary text-xl mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-secondary">Phone</h4>
-                  <a href="tel:+2348035913519" className="text-gray-600 hover:text-primary">
-                    +1 (234) 803-591-3519
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <FiMapPin className="text-primary text-xl mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-secondary">Location</h4>
-                  <p className="text-gray-600">Your City, Your Country</p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Social Links */}
-            <div className="mb-8">
-              <h4 className="font-semibold text-secondary mb-4">Follow Me</h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://www.linkedin.com/in/joseph-eton/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary text-white p-3 rounded-lg hover:bg-blue-600 transition"
-                >
-                  <FiLinkedin size={20} />
+            {/* Socials */}
+            <div className="flex gap-3 mb-8">
+              {[
+                { icon: FiLinkedin, href: 'https://www.linkedin.com/in/joseph-eton/', label: 'LinkedIn' },
+                { icon: FiGithub, href: 'https://github.com/etonjoe', label: 'GitHub' },
+              ].map(({ icon: Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-blue-400 hover:border-blue-400 transition-all">
+                  <Icon size={18} />
                 </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary text-white p-3 rounded-lg hover:bg-blue-600 transition"
-                >
-                  <FiGithub size={20} />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary text-white p-3 rounded-lg hover:bg-blue-600 transition"
-                >
-                  <FiTwitter size={20} />
-                </a>
-              </div>
+              ))}
             </div>
 
-            {/* WhatsApp Button */}
-            <div>
-              <h4 className="font-semibold text-secondary mb-4">Quick Contact</h4>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition font-semibold w-fit"
-              >
-                <FiMessageCircle size={20} />
-                Message on WhatsApp
-              </a>
-            </div>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-green-600/20">
+              <FiMessageCircle size={18} /> WhatsApp Me
+            </a>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-secondary font-semibold mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-secondary font-semibold mb-2">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="eton.joseph@gmail.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="subject" className="block text-secondary font-semibold mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="Project Inquiry"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-secondary font-semibold mb-2">
-                  Message
-                </label>
+          {/* Form */}
+          <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {[
+                { id: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
+                { id: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
+                { id: 'subject', label: 'Subject', type: 'text', placeholder: 'Project inquiry' },
+              ].map(f => (
+                <div key={f.id}>
+                  <label htmlFor={f.id} className="block text-slate-400 text-sm mb-1.5">{f.label}</label>
+                  <input
+                    type={f.type} id={f.id} name={f.id}
+                    value={formData[f.id]} onChange={handleChange} required
+                    placeholder={f.placeholder}
+                    className="w-full bg-slate-800 border border-slate-600 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 placeholder-slate-600 transition-colors"
+                  />
+                </div>
+              ))}
+              <div>
+                <label htmlFor="message" className="block text-slate-400 text-sm mb-1.5">Message</label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary resize-none"
-                  placeholder="Tell me about your project..."
+                  id="message" name="message"
+                  value={formData.message} onChange={handleChange} required
+                  rows="5" placeholder="Tell me about your project..."
+                  className="w-full bg-slate-800 border border-slate-600 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 placeholder-slate-600 resize-none transition-colors"
                 ></textarea>
               </div>
-
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-600 transition font-semibold"
-              >
+              <button type="submit"
+                className="w-full bg-blue-500 hover:bg-blue-400 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-blue-500/20">
                 {submitted ? '✓ Message Sent!' : 'Send Message'}
               </button>
             </form>
