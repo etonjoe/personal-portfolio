@@ -27,17 +27,16 @@ export default function Hero() {
           {/* Text */}
           <div className="text-center md:text-left">
             <p className="text-blue-400 font-semibold tracking-widest uppercase text-sm mb-3">
-              Welcome to my portfolio
+              Welcome to my portfolio!
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-              Joseph<br />
-              <span className="text-blue-400">Eton</span>
+              Joseph <span className="text-blue-400">Eton</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-3 font-light">
               Data Scientist &amp; Engineer
             </p>
             <p className="text-slate-400 mb-8 max-w-xl leading-relaxed">
-              13+ years transforming complex data into decisions. Public health researcher, cloud architect, and builder of AI-powered platforms for African contexts.
+              13+ years transforming complex data into decisions. Public health researcher, cloud architect, and builder of tailored AI-powered platforms.
             </p>
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
